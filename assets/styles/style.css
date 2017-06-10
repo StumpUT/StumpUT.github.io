@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+body {
+	background-image: url(../images/woodbg.jpg);
+	background-color: #dddddd;
+	color: #000;
+	font-family: 'Ubuntu', sans-serif;
+}
+/* Formats the top banner. -John Bendfeldt jfbendfeldt@gmail.com*/
+.banner {
+	background-color: #0d4c06;
+	color: #D9AF8B;
+	min-height: 90px;
+	width: 100% !important;
+	top: 0px;
+    letter-spacing: 0.05em;
+    border-bottom: 5px solid #dddddd;
+    text-align: center;
+    margin: 0px !important;
+    right: 0px !important;
+    position: absolute;
+	z-index: 999;
+	box-shadow: 3px 3px 10px #000;
+}
+
+.contatiner {
+	font-family: 'Ubuntu' !important, sans-serif;
+}
+
+h1 {
+	color: #D9AF8B;
+	text-shadow: 2px 2px 2px #B86403;
+    font-weight: 900 !important;
+    font-size: 48px !important;
+    font-family: 'Ubuntu' !important, sans-serif;
+    float: left;
+}
+
+h2,
+h4 {
+	font-weight: 900;
+}
+/* Places the map on page with the apistuff. -JB */
+#apistuff, 
+#map {
+	height: 300px;
+	border: none;
+	max-width: 300px
+	margin: 5% 5%;
+	box-shadow: 3px 3px 10px #000;
+}
+/* Formats user input section. -JB */
+.user-input {
+	overflow: auto;
+	background-color: #D9AF8B;
+	padding: 3%;
+	border: 3px solid #dddddd;
+	margin: 0px 15px 15px 15px;
+	box-shadow: 3px 3px 10px #000;
+}
+/* Formats button appearance. -JB */
+.buttons {
+	border: none;
+	border-radius: 3px;
+	color: #D9AF8B;
+	background-color: #0d4c06;
+	margin: 3px 0px;
+	padding: 5px 10px;
+}
+.search-btn:hover,
+.btn-user:hover,
+.buttons:hover {
+	background-color: #dddddd !important;
+	color: #000;
+	box-shadow: 2px 2px 2px #000;
+}
+
+.search-btn:active:hover, 
+.search-btn:focus:hover,
+.buttons:active,
+.buttons:focus {
+	color: #D9AF8B !important;
+	background-color: #000 !important;
+	outline: none!important;
+}
+
+.search-btn:active:hover, 
+.search-btn:focus:hover,
+.buttons:active:hover,
+.buttons:focus:hover {
+	box-shadow: 2px 2px 2px #dddddd;
+}
+
+.search-btn {
+	border: none;
+	border-radius: 3px;
+	color: #0d4c06;
+	background-color: #D9AF8B;
+	margin: 3px 0px;
+	padding: 5px 10px;
+}
+
+.search-menu{
+	width: 99%;
+}
+
+
+/* Sets top margin so banner doesn't cover any of the main content area. -JB */
+.content {
+	margin: 120px 0px 0px 0px;
+	max-width: 1100px;
+	width: 100%;
+	display: relative;
+}
+/* Sets the table dimensions. -JB */
+th {
+	width: auto;
+	padding: 0px 10px;
+}
+
+table {
+	margin: 5px auto;
+	float: left;
+}
+
+table, th, td {
+    border: 0.5px dashed #B86403;
+}
+/* A falling leaf pattern to go with the stump or woodland theme. -JB */
+#leaves{
+	background: none;
+	background-image: url('../images/leaves2.png'), url('../images/leaves1.png');
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index:-1;
+	-webkit-animation: leaves 30s linear infinite;
+	-moz-animation: leaves 30s linear infinite;
+	-ms-animation: leaves 30s linear infinite;
+	animation: leaves 30s linear infinite;
+}
+/* Leaves change position over 30 seconds. -JB */
+@keyframes leaves {
+  0% {background-position: 0px 0px, 0px 0px;}
+  50% {background-position: -500px 500px, -100px 200px;}
+  100% {background-position: -500px 1000px, 200px 400px;}
+}
+@-moz-keyframes leaves {
+  0% {background-position: 0px 0px, 0px 0px;}
+  50% {background-position: -500px 500px, -100px 200px;}
+  100% {background-position: -400px 1000px, -200px 400px;}
+}
+@-webkit-keyframes leaves {
+  0% {background-position: 0px 0px, 0px 0px;}
+  50% {background-position: -500px 500px, -100px 200px;}
+  100% {background-position: -500px 1000px, -200px 400px;}
+}
+@-ms-keyframes leaves {
+  0% {background-position: 0px 0px, 0px 0px;}
+  50% {background-position: -500px 500px, -100px 200px;}
+  100% {background-position: -500px 1000px, -200px 400px;}
+}	
+
+.checkbox {
+	margin: 0px auto !important;
+}
+
+.remove-btn {
+	margin: 0px 0px 0px 25%;
+	font-weight: 900 !important;
+}
+
+/* remove stumpee button -kb*/
+.remove-stumpee{
+	margin: 0px 0px 0px 25%;
+	font-weight: 900 !important;
+}
+
+/*this is going to be where we put place details of a selected stump! -KAYLEA!*/
+#placeInfo{
+	background-color: #D9AF8B;
+	padding: 3%;
+	margin-top: 15px;
+	border: 3px solid #dddddd;
+	box-shadow: 3px 3px 10px #000;
+	visibility: hidden;
+}
+
+a {
+	color: #0d4c06;
+	font-family: 'Oswald', sans-serif;
+	font-size: 15px;
+}
+
+a:hover {
+	color: #000;
+	text-decoration: none;
+	text-shadow:
+			-.5px -.5px 0 #dddddd,  
+			.5px -.5px 0 #dddddd,
+			-.5px .5px 0 #dddddd,
+			.5px .5px 0 #dddddd;
+	font-family: 'Oswald', sans-serif;
+	font-size: 15px;
+}
+/* Establishes fonts for location info under map. -JB */
+.locationInfo {
+	font-family: 'Oswald', sans-serif;
+	font-size: 15px;
+}
+/* Availability colors. -JB */
+.select-morning {
+	color: #FFFFFF;
+	background-color: #31B0D5;
+}
+
+.select-afternoon {
+	color: #FFFFFF;
+	background-color: #EC971F;
+}
+
+.select-evening {
+	color: #FFFFFF;
+	background-color: #286090;
+}
+/* Makes table body have a pointer so people know they can click it. -JB */
+tbody {
+	cursor: pointer;
+}
+
+/* changes the sign-in button */
+#navContents {
+	float: right;
+	margin: 20px 0px 0px 0px;
+}
+
+.btn-default:hover {
+	box-shadow: 2px 2px 2px #000;
+}
+
+.form-control:hover {
+	box-shadow: 2px 2px 2px #000;
+}
+
+.navbar-btn {
+	margin: 0px;
+}
+
+.navHeader {
+	max-width: 1100px;
+	width: 100%;
+	margin: 0px auto;
+}
+
+#errMsg{
+	color:#E74C3C;
+	font-weight: 900;
+}
+
+@media screen and (max-width: 980px) {
+
+	#navContents {
+		margin-right: 5% !important;
+	}
+
+	h1 {
+		margin-left: 5% !important;
+	}
+
+@media screen and (max-width: 560px) {
+	#navContents {
+		margin: 0px !important;
+	}
+}
+
+@media screen and (max-width: 535px) {
+	.content {
+		margin: 215px 0px 0px 0px;
+	}
+}

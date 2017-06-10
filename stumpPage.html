@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Group Project 1 - StudentMeetup App">
+	<meta name="keywords" content="coding, bootcamp, part-time, student, meetup">
+	<meta name="authors" content="Jordan Knight, Marya Crigler, Anthony Pekearo, Kaylea Box, John Bendfeldt">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>STUMP</title>
+<!-- jquery script. -JB -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- Bootstrap csss link. -John Bendfeldt jfbendfeldt@gmail.com -->
+	<<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+	<!-- Firebase script. -JB -->
+	<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<!-- moment js script. -JB -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<!--   Libraries for date picker  - MDC -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+	<!--  javascript for STUMP -->
+	<script type="text/javascript" src="assets/js/initFirebase.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/userAuth.js"></script>
+
+</head>
+<!-- Establishes banner as a row. -JB -->
+<div class="banner row">
+	<div class="navHeader">
+		<h1>STUMP<img src="assets/images/stumplogo.gif" width="60px"></h1>
+		<div id="navContents" class="col-sm-15">
+			<div class="btn-group">
+				<button type="button" class="btn search-btn update-btn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</button>
+				<button type="button" class="btn search-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right" style="background-color: #D9AF8B;">
+				    <li><button class="browse-btn search-btn search-menu">Check Stumps</button></li>
+				    <li><button class="update-btn search-btn search-menu">Update Profile</button></li>
+				    <li><button class="search-btn search-menu" id="signOut">Sign Out</button></li>
+				</ul>
+			</div>	
+	    </div>
+	</div>
+</div>
+<!-- Establishes main content area as a grid for bootstrap to work. -JB -->
+<body class="container">
+<!-- Establishes leaves for animation. -JB -->
+<div id="leaves">
+</div>
+<div class="content row">
+	<div class="user-input col-md-8">
+	<form>
+				<h2>Welcome to STUMP</h2>
+				<h4>Where STUdents Meet uP!</h4>
+                <label for="availability-input">Availability</label>
+                <br>
+                <!-- Selecting availability for stump time. -JB -->
+                <input type="text" name="stumpDate" />
+                <div class="col-sm-15">
+					<select class ="avail-btn" name="Availability">
+                		<option value="">No Availability</option>
+                		<option data-value="Morning" class="select-morning">Morning</option>
+                		<option data-value="Afternoon" class="select-afternoon">Afternoon</option>
+                		<option data-value="Evening" class="select-evening">Evening</option>
+                	</select>
+                </div>
+                <br>
+                <!-- Select a location with this button. -JB -->
+                <button type="button" class="buttons" id="places">Get Places <span class="glyphicon glyphicon-road" aria-hidden="true"></button>   
+                <!-- Create a stump here. Pushing data to the table. -JB -->             
+                <button type="button" class="buttons" id="add-stump-btn" type="submit">Create Stump</button>
+                <button type="button" class="buttons join-btn" id="join-btn">Join Stump</button>
+                <button type="button" class="buttons filter-btn" id="filter-btn">Filter <span d="filterIcon" class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>
+                <br><span id="errMsg"></span>
+	</form>
+			<table>
+				<thead>
+                  <tr>
+					<th>Stump Leader</th>
+					<th>Location <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></th>
+					<th>Stumpees</th>
+					<th>Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></th>
+					<th>Time <span class="glyphicon glyphicon-time" aria-hidden="true"></span></th>
+					<th>Selected<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></th>
+					<th>Delete<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></th>
+					</tr>
+				</thead>
+				<tbody id="stumps">
+				</tbody>
+			</table>
+	</div>
+	<!-- Map display Happens here. -JB -->
+	<div id="apiStuff" class="col-md-3">
+	  <section id="map"></section>
+	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_tV6Hz5kQdY1kRrBnl9TZH5sNymPX6Is&libraries=places&callback=initMap" async defer></script>
+	  <div id="placeInfo"></div>
+	  <!--had to generate a new api key because is was throwing an error that the program could not access google places library. I believe there might be a cap on use? AIzaSyBNTLpbtTYUAjvokJlpdDVDTqxbHqFYDkg  AIzaSyC_tV6Hz5kQdY1kRrBnl9TZH5sNymPX6Is--> 
+	</div>
+</div>
+
+</body>
+</html>

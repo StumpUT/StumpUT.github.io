@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Group Project 1 - StudentMeetup App">
+	<meta name="keywords" content="coding, bootcamp, part-time, student, meetup">
+	<meta name="authors" content="Jordan Knight, Marya Crigler, Anthony Pekearo, Kaylea Box, John Bendfeldt">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>STUMP Sign In</title>
+<!-- jquery script. -JB -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- Bootstrap csss link. -John Bendfeldt jfbendfeldt@gmail.com -->
+	<<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+
+	<!-- Firebase script. -JB -->
+	<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<!-- moment js script. -JB -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<!--   Libraries for date picker  - MDC -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+	<!--  javascript for STUMP -->
+	<script type="text/javascript" src="assets/js/initFirebase.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/userAuth.js"></script>
+	
+
+</head>
+<!-- Establishes banner as a row. -JB -->
+<div class="banner row">
+	<div class="navHeader">
+		<h1>STUMP<img src="assets/images/stumplogo.gif" width="60px"></h1>
+		<!-- Where user sign-in appears. -JB -->
+			<div id="navContents">
+    			<button type="button" id="signInPage" class="btn search-btn navbar-btn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign in</button>
+    		</div>
+    </div>
+</div>
+<!-- Establishes main content area as a grid for bootstrap to work. -JB -->
+<body class="container">
+<!-- Establishes leaves for animation. -JB -->
+<div id="leaves">
+</div>
+
+<div class="content row">
+	<form class="user-input" style="background-color: #D9AF8B; margin:30px;">
+		<div id="alerts"></div>
+	  <div id="userInfo">
+		  <div class="form-group" style="margin: 10px;">
+		    <label for="email">Email Address</label>
+		    <input style="border:none;" type="email" class="form-control" id="userEmail" placeholder="Email">
+		  </div>
+		  <div class="form-group" id="password" style="margin: 10px;">
+		    <label for="password">Password</label>
+		    <input style="border:none;" type="password" class="form-control" id="userPassword" placeholder="Password">
+		  </div>
+	  </div>
+	  <div class="checkbox" >
+	    <label style="margin: 10px;">
+	      <input type="checkbox" value="unchecked"> Get email notifications?
+	    </label>
+	  </div>
+	  <div id="buttons">
+		  <button style="margin: 10px; border:none"; type="submit" class="btn buttons" id="signIn">Sign In</button> or
+		  <button style="margin: 10px; border:none"; type="button" class="btn buttons" id="createAccount">Create Account</button>
+	  </div>
+	</form>
+</div>
+
+</body>
+</html>
